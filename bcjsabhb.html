@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Contact Page</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background image + overlay */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("https://images.unsplash.com/photo-1492724441997-5dc865305da7");
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    animation: zoom 20s infinite alternate;
+}
+
+@keyframes zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* Glass container */
+.contact-container {
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(20px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+/* Floating labels FIXED */
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 12px;
+    background: transparent;
+    border: 1px solid #ccc;
+    color: white;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #00f7ff;
+    box-shadow: 0 0 8px #00f7ff;
+}
+
+/* Labels */
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.3s ease;
+    padding: 0 5px;
+}
+
+/* Move label up */
+.form-control:focus + label,
+.form-control:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #00f7ff;
+    background: rgba(0,0,0,0.7);
+    border-radius: 4px;
+}
+
+/* Button */
+.btn-custom {
+    background: linear-gradient(45deg, #00f7ff, #007bff);
+    border: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00f7ff;
+}
+
+/* Navbar animation */
+.slide-text {
+    animation: slideIn 1s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity:0;}
+    to { transform: translateX(0); opacity:1;}
+}
+
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand slide-text">                       Contact Us</span>
+    </div>
+</nav>
+
+<!-- Form -->
+<div class="container">
+    <div class="contact-container text-white">
+
+        <h3 class="text-center mb-4">Get in Touch</h3>
+
+        <form id="contactForm">
+
+            <div class="form-group">
+                <input type="text" id="name" class="form-control" placeholder=" ">
+                <label>Full Name</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="email" class="form-control" placeholder=" ">
+                <label>Email Address</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="subject" class="form-control" placeholder=" ">
+                <label>Subject</label>
+            </div>
+
+            <div class="form-group">
+                <textarea id="message" class="form-control" rows="4" placeholder=" "></textarea>
+                <label>Message</label>
+            </div>
+
+            <div id="errorMsg" class="text-danger mb-3"></div>
+
+            <button type="submit" class="btn btn-custom w-100">Send Message</button>
+        </form>
+
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Smart Contact Page</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+    // Load cookies
+    let cookies = document.cookie.split("; ");
+    cookies.forEach(function(c){
+        let [key, value] = c.split("=");
+        if(key === "name") $("#name").val(value);
+        if(key === "email") $("#email").val(value);
+    });
+
+    // Fix labels if pre-filled
+    $(".form-control").each(function(){
+        if($(this).val() !== ""){
+            $(this).next("label").css({
+                top: "-10px",
+                fontSize: "12px",
+                color: "#00f7ff"
+            });
+        }
+    });
+
+    $("#contactForm").submit(function(e){
+        e.preventDefault();
+
+        let name = $("#name").val().trim();
+        let email = $("#email").val().trim();
+        let subject = $("#subject").val().trim();
+        let message = $("#message").val().trim();
+        let errorMsg = "";
+
+        if(name === "" || email === "" || subject === "" || message === "") {
+            errorMsg = "All fields are required.";
+        } else {
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if(!email.match(emailPattern)) {
+                errorMsg = "Enter a valid email.";
+            }
+        }
+
+        if(errorMsg !== "") {
+            $("#errorMsg").text(errorMsg);
+            return;
+        }
+
+        // Save cookies
+        document.cookie = "name=" + name + "; max-age=" + (7*24*60*60);
+        document.cookie = "email=" + email + "; max-age=" + (7*24*60*60);
+
+        $("#errorMsg").text("");
+        alert("✅ Message sent!");
+        $("#contactForm")[0].reset();
+    });
+
+});
+</script>
+
+</body>
+</html>
