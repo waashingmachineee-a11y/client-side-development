@@ -1,0 +1,239 @@
+/* ============================================================
+   tools.css — StudyHub Tools Page
+   Matches the team's existing visual style (purple/card theme)
+   ============================================================ */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #f6f0ff, #ede3ff);
+  min-height: 100vh;
+}
+
+/* ── HEADER (same as team's other pages) ── */
+header {
+  background: linear-gradient(90deg, #6a0dad, #8e44ad);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover { text-decoration: underline; }
+
+/* ── PAGE INTRO ── */
+.page-intro {
+  text-align: center;
+  padding: 30px 20px 10px;
+  color: #4a0080;
+}
+
+.page-intro h2 { font-size: 1.8rem; margin-bottom: 6px; }
+.page-intro p  { color: #666; font-size: 0.95rem; }
+
+/* ── TOOL CARDS ── */
+.tool-card {
+  width: 60%;
+  margin: 25px auto;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.tool-card:hover { transform: translateY(-4px); }
+
+.tool-card h3 {
+  color: #6a0dad;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.tool-card > p {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+/* ── INPUTS ── */
+.gpa-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.gpa-row input {
+  flex: 1;
+  min-width: 80px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.grade-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.grade-row label { min-width: 60px; color: #555; font-size: 0.9rem; }
+
+.grade-row input {
+  width: 140px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* ── BUTTONS ── */
+.tool-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 18px;
+  border: none;
+  background: #6a0dad;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+button:hover:not(:disabled) {
+  background: #9b59b6;
+  transform: scale(1.05);
+}
+
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.remove-btn {
+  background: #e74c3c;
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover { background: #c0392b; }
+
+/* ── MODE TOGGLE ── */
+.mode-toggle { display: flex; gap: 8px; margin-bottom: 14px; }
+
+.mode-btn {
+  background: white;
+  color: #6a0dad;
+  border: 2px solid #6a0dad;
+  border-radius: 30px;
+  padding: 7px 18px;
+  font-size: 0.88rem;
+}
+
+.mode-btn.active {
+  background: #6a0dad;
+  color: white;
+}
+
+/* ── COUNTDOWN SETTINGS ── */
+#countdown-settings {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#timer-mins {
+  width: 70px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* ── TIMER DISPLAY ── */
+.timer-display {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #6a0dad;
+  text-align: center;
+  background: #f6f0ff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
+}
+
+/* ── RESULT BOX ── */
+/* jQuery shows/hides this div after calculation */
+.result-box {
+  display: none;
+  margin-top: 14px;
+  background: #f6f0ff;
+  border-left: 4px solid #6a0dad;
+  border-radius: 10px;
+  padding: 14px 18px;
+  animation: fadeIn 0.4s ease;
+}
+
+.result-box p { margin: 4px 0; font-size: 1rem; }
+.result-box strong { color: #6a0dad; font-size: 1.1rem; }
+
+/* ── GPA PROGRESS BAR ── */
+.gpa-bar-wrap {
+  margin-top: 10px;
+  background: #e0d4f7;
+  border-radius: 30px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.gpa-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #6a0dad, #9b59b6);
+  border-radius: 30px;
+  width: 0%;
+  transition: width 0.7s ease;
+}
+
+/* ── MESSAGES ── */
+.error-msg   { color: red;   font-size: 0.88rem; margin-top: 8px; min-height: 1.2em; }
+.success-msg { color: green; font-size: 0.9rem;  margin-top: 8px; font-weight: 500; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: 0.85rem;
+  margin-top: 40px;
+  border-top: 1px solid #ddd;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .tool-card { width: 90%; }
+  .gpa-row   { flex-direction: column; }
+  .timer-display { font-size: 2.2rem; }
+}

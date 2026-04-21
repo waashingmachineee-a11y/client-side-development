@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyHub - Subjects</title>
+  <link rel="stylesheet" href="subjects.css">
+  <!-- jQuery (used for tab switching and topic reveal) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>StudyHub</h1>
+  <p>Explore Subjects & Topics</p>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="resources.html">Resources</a>
+    <a href="subjects.html">Subjects</a>
+    <a href="tools.html">Tools</a>
+    <a href="upload.html">Upload</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE INTRO -->
+<section class="page-intro">
+  <h2>Choose a Subject</h2>
+  <p>Click a tab to explore topics. Click any subject card to see more detail.</p>
+</section>
+
+<!-- TAB NAVIGATION -->
+<!-- jQuery listens for clicks on these buttons to switch panels -->
+<div class="tab-bar">
+  <button class="tab-btn active" data-tab="programming">💻 Programming</button>
+  <button class="tab-btn" data-tab="math">📐 Mathematics</button>
+  <button class="tab-btn" data-tab="science">🔬 Science</button>
+</div>
+
+<!-- ===== PROGRAMMING PANEL ===== -->
+<div class="tab-panel active" id="panel-programming">
+
+  <div class="subject-card" tabindex="0">
+    <div class="card-top">
+      <span class="card-icon">🌐</span>
+      <h3>Web Development</h3>
+    </div>
+    <p>Build modern websites with HTML, CSS, and JavaScript.</p>
+    <!-- jQuery toggles this button's topic list on click -->
+    <button class="topics-btn" aria-expanded="false">Show Topics</button>
+    <ul class="topics-list">
+      <li>HTML5 Semantic Markup</li>
+      <li>CSS Flexbox &amp; Grid</li>
+      <li>JavaScript DOM Manipulation</li>
+      <li>jQuery Event Handling</li>
+      <li>Responsive Design</li>
+    </ul>
+  </div>
+
+  <div class="subject-card" tabindex="0">
+    <div class="card-top">
+      <span class="card-icon">🐍</span>
+      <h3>Python Programming</h3>
+    </div>
+    <p>From fundamentals to data analysis and automation.</p>
+    <button class="topics-btn" aria-expanded="false">Show Topics</button>
+    <ul class="topics-list">
+      <li>Variables &amp; Data Types</li>
+      <li>Control Flow &amp; Loops</li>
+      <li>Functions &amp; Modules</li>
+      <li>File I/O</li>
+      <li>Libraries: NumPy, Pandas</li>
+    </ul>
+  </div>
+
+  <div class="subject-card" tabindex="0">
+    <div class="card-top">
+      <span class="card-icon">🗄️</span>
+      <h3>Databases</h3>
+    </div>
+    <p>Relational databases, SQL queries, and database design.</p>
+    <button class="topics-btn" aria-expanded="false">Show Topics</button>
+    <ul class="topics-list">
+      <li>Entity-Relationship Diagrams</li>
+      <li>SQL: SELECT, INSERT, UPDATE</li>
+      <li>Joins &amp; Subqueries</li>
+      <li>Normalisation (1NF–3NF)</li>
+      <li>Transactions &amp; Indexes</li>
+    </ul>
+  </div>
+
+</div><!-- /programming panel -->
+
+<!-- ===== MATHEMATICS PANEL ===== -->
+<div class="tab-panel" id="panel-math">
+
+  <div class="subject-card" tabindex="0">
+    <div class="card-top">
+      <span class="card-icon">∞</span>
+      <h3>Calculus</h3>
+    </div>
+    <p>Differentiation, integration, and real-world applications.</p>
+    <button class="topics-btn" aria-expanded="false">Show Topics</button>
+    <ul class="topics-list">
+      <li>Limits &amp; Continuity</li>
+      <li>Derivatives</li>
+      <li>Integration Techniques</li>
+      <li>Differential Equations</li>
+    </ul>
+  </div>
+
+  <div class="subject-card" tabindex="0">
+    <div class="card-top">
+      <span class="card-icon">📊</span>
+      <h3>Statistics</h3>
+    </div>
+    <p>Descriptive and inferential statistics for data analysis.</p>
+    <button class="topics-btn" aria-expanded="false">Show Topics</button>
+    <ul class="topics-list">
+      <li>Mean, Median, Mode</li>
+      <li>Probability Theory</li>
+      <li>Hypothesis Testing</li>
+      <li>Regression Analysis</li>
+    </ul>
+  </div>
+
+  <div class="subject-card" tabindex="0">
+    <div class="card-top">
+      <span class="card-icon">🔢</span>
+      <h3>Algebra</h3>
+    </div>
+    <p>Variables, equations, and algebraic structures.</p>
+    <button class="topics-btn" aria-expanded="false">Show Topics</button>
+    <ul class="topics-list">
+      <li>Linear Equations</li>
+      <li>Quadratic Equations</li>
+      <li>Factorisation</li>
+      <li>Matrices</li>
+    </ul>
+  </div>
+
+</div><!-- /math panel -->
+
+<!-- ===== SCIENCE PANEL ===== -->
+<div class="tab-panel" id="panel-science">
+
+  <div class="subject-card" tabindex="0">
+    <div class="card-top">
+      <span class="card-icon">⚛️</span>
+      <h3>Physics</h3>
+    </div>
+    <p>Mechanics, electromagnetism, and quantum theory.</p>
+    <button class="topics-btn" aria-expanded="false">Show Topics</button>
+    <ul class="topics-list">
+      <li>Newtonian Mechanics</li>
+      <li>Waves &amp; Optics</li>
+      <li>Electromagnetism</li>
+      <li>Quantum Mechanics</li>
+    </ul>
+  </div>
+
+  <div class="subject-card" tabindex="0">
+    <div class="card-top">
+      <span class="card-icon">🧪</span>
+      <h3>Chemistry</h3>
+    </div>
+    <p>Atomic structure, bonding, and chemical reactions.</p>
+    <button class="topics-btn" aria-expanded="false">Show Topics</button>
+    <ul class="topics-list">
+      <li>Atomic Theory</li>
+      <li>Chemical Bonding</li>
+      <li>Reaction Kinetics</li>
+      <li>Thermodynamics</li>
+    </ul>
+  </div>
+
+</div><!-- /science panel -->
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 StudyHub. Built for COM109 CW2.</p>
+</footer>
+
+<script src="subjects.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyHub - Tools</title>
+  <link rel="stylesheet" href="tools.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>StudyHub</h1>
+  <p>Study Tools</p>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="resources.html">Resources</a>
+    <a href="subjects.html">Subjects</a>
+    <a href="tools.html">Tools</a>
+    <a href="upload.html">Upload</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- PAGE INTRO -->
+<section class="page-intro">
+  <h2>🧮 Study Tools</h2>
+  <p>Use our built-in GPA Calculator, Grade Calculator, and Study Timer.</p>
+</section>
+
+<!-- ===================================================
+     TOOL 1: GPA CALCULATOR
+     Inputs: subject name, grade (%), credits
+     Output: weighted GPA on a 4.0 scale
+     =================================================== -->
+<div class="tool-card">
+  <h3>🎓 GPA Calculator</h3>
+  <p>Add your subjects, percentage grades, and credit hours.</p>
+
+  <!-- jQuery adds new rows here when "Add Subject" is clicked -->
+  <div id="gpa-rows">
+    <div class="gpa-row">
+      <input type="text"   class="gpa-subject" placeholder="Subject name" aria-label="Subject name" />
+      <input type="number" class="gpa-grade"   placeholder="Grade (0–100)" min="0" max="100" aria-label="Grade" />
+      <input type="number" class="gpa-credits" placeholder="Credits" min="1" max="20" aria-label="Credits" />
+      <button class="remove-btn" aria-label="Remove row">✕</button>
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button id="add-subject-btn">+ Add Subject</button>
+    <button id="calc-gpa-btn">Calculate GPA</button>
+  </div>
+
+  <!-- Error shown by jQuery if fields are invalid -->
+  <p class="error-msg" id="gpa-error"></p>
+
+  <!-- Result revealed by jQuery after calculation -->
+  <div class="result-box" id="gpa-result">
+    <p>Your GPA: <strong id="gpa-value">0.00</strong> / 4.00</p>
+    <div class="gpa-bar-wrap">
+      <div class="gpa-bar" id="gpa-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================
+     TOOL 2: GRADE CALCULATOR
+     Inputs: any number of percentage marks
+     Output: average + UK degree classification
+     =================================================== -->
+<div class="tool-card">
+  <h3>📊 Grade Calculator</h3>
+  <p>Enter your marks to find your average and classification.</p>
+
+  <div id="grade-inputs">
+    <div class="grade-row">
+      <label>Mark 1</label>
+      <input type="number" class="grade-mark" placeholder="0–100" min="0" max="100" aria-label="Mark 1" />
+    </div>
+    <div class="grade-row">
+      <label>Mark 2</label>
+      <input type="number" class="grade-mark" placeholder="0–100" min="0" max="100" aria-label="Mark 2" />
+    </div>
+    <div class="grade-row">
+      <label>Mark 3</label>
+      <input type="number" class="grade-mark" placeholder="0–100" min="0" max="100" aria-label="Mark 3" />
+    </div>
+  </div>
+
+  <div class="tool-actions">
+    <button id="add-mark-btn">+ Add Mark</button>
+    <button id="calc-grade-btn">Calculate Average</button>
+  </div>
+
+  <p class="error-msg" id="grade-error"></p>
+
+  <div class="result-box" id="grade-result">
+    <p>Average: <strong id="grade-value">—</strong>%</p>
+    <p>Classification: <strong id="grade-class">—</strong></p>
+  </div>
+</div>
+
+<!-- ===================================================
+     TOOL 3: STUDY TIMER
+     Two modes: countdown (Pomodoro) and stopwatch
+     Controlled by Start / Pause / Reset buttons
+     =================================================== -->
+<div class="tool-card">
+  <h3>⏱️ Study Timer</h3>
+  <p>Focus with a countdown or track time with a stopwatch.</p>
+
+  <!-- Mode toggle -->
+  <div class="mode-toggle">
+    <button class="mode-btn active" data-mode="countdown">Countdown</button>
+    <button class="mode-btn" data-mode="stopwatch">Stopwatch</button>
+  </div>
+
+  <!-- Countdown settings (hidden in stopwatch mode) -->
+  <div id="countdown-settings">
+    <label for="timer-mins">Set minutes: </label>
+    <input type="number" id="timer-mins" value="25" min="1" max="120" aria-label="Timer minutes" />
+  </div>
+
+  <!-- Timer display -->
+  <div class="timer-display" aria-live="polite">
+    <span id="t-hh">00</span>:<span id="t-mm">25</span>:<span id="t-ss">00</span>
+  </div>
+
+  <!-- Control buttons -->
+  <div class="tool-actions">
+    <button id="timer-start">▶ Start</button>
+    <button id="timer-stop"  disabled>⏸ Pause</button>
+    <button id="timer-reset">↺ Reset</button>
+  </div>
+
+  <!-- Status message (e.g. "Time's up!") -->
+  <p class="success-msg" id="timer-msg"></p>
+</div>
+
+<footer>
+  <p>&copy; 2026 StudyHub. Built for COM109 CW2.</p>
+</footer>
+
+<script src="tools.js"></script>
+
+</body>
+</html>
