@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StudyHub - Home</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+  <!-- 🍪 COOKIE BOX -->
+<div id="cookieBox" class="cookie-box">
+  <p>🍪 Welcome! Please enter your name</p>
+
+  <input type="text" id="userName" placeholder="Enter your name">
+
+  <button onclick="saveCookie()">Save</button>
+</div>
+
+<!-- Welcome message -->
+<div id="welcomeMsg" class="welcome-msg"></div>
+
+<header>
+  <h1>StudyHub</h1>
+  <p>Your Smart Learning Platform</p>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="resources.html">Resources</a>
+    <a href="subjects.html">Subjects</a>
+    <a href="tools.html">Tools</a>
+    <a href="upload.html">Upload</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO SECTION WITH SINGLE VIDEO -->
+<section class="hero">
+
+  <video autoplay muted loop class="hero-video">
+    <source src="WhatsApp Video 2026-04-16 at 12.48.38.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h2>Learn Smarter Every Day 🚀</h2>
+    <p>Access notes, tools, and resources in one place</p>
+    <button onclick="goResources()">Explore Resources</button>
+  </div>
+
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="cards">
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+    <h3>📚 Study Resources</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0">
+    <h3>🧮 Learning Tools</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
+    <h3>📝 Upload Notes</h3>
+  </div>
+
+</section>
+<footer class="footer">
+
+  <div class="footer-container">
+
+   
+    <div class="footer-section">
+      <h3>StudyHub</h3>
+      <p>Your smart learning platform to access notes, tools, and resources anytime.</p>
+    </div>
+
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <a href="home.html">Home</a>
+      <a href="resources.html">Resources</a>
+      <a href="subjects.html">Subjects</a>
+      <a href="tools.html">Tools</a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Support</h4>
+      <a href="contact.html">Contact</a>
+    </div>
+
+  
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <p>Email: support@studyhub.com</p>
+      <p>Phone: +44 123 456 789</p>
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+    <p>© 2026 StudyHub | Made for students 📖</p>
+  </div>
+
+</footer>
+
+<!-- ✅ JAVASCRIPT -->
+<script>
+  // Save cookie
+  function saveCookie() {
+    let name = document.getElementById("userName").value;
+    if (name !== "") {
+      document.cookie = "username=" + name + ";path=/;max-age=31536000"; // 1 year
+      showWelcome(name);
+      document.getElementById("cookieBox").style.display = "none";
+    }
+  }
+
+  // Get cookie
+  function getCookie(name) {
+    let cookies = document.cookie.split(";");
+    for (let c of cookies) {
+      let [key, value] = c.trim().split("=");
+      if (key === name) return value;
+    }
+    return "";
+  }
+  </script>
+
+<!-- JS FILE -->
+<script src="home.js"></script>
+
+</body>
+</html>
