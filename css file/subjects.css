@@ -1,0 +1,199 @@
+/* ============================================================
+   subjects.css — StudyHub Subjects Page
+   Matches the team's existing visual style:
+   - Purple gradient header (same as home.css / resources.css)
+   - White card design with box-shadow
+   - Hover lift transitions
+   ============================================================ */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #f6f0ff, #ede3ff);
+  min-height: 100vh;
+}
+
+/* ── HEADER (identical to team's other pages) ── */
+header {
+  background: linear-gradient(90deg, #6a0dad, #8e44ad);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+nav a {
+  color: white;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ── PAGE INTRO ── */
+.page-intro {
+  text-align: center;
+  padding: 30px 20px 10px;
+  color: #4a0080;
+}
+
+.page-intro h2 {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.page-intro p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ── TAB BAR ── */
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 24px;
+  border: 2px solid #6a0dad;
+  background: white;
+  color: #6a0dad;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-btn:hover {
+  background: #6a0dad;
+  color: white;
+}
+
+/* Active tab state — set by jQuery */
+.tab-btn.active {
+  background: #6a0dad;
+  color: white;
+}
+
+/* ── TAB PANELS ── */
+/* Hidden by default — jQuery adds .active to show a panel */
+.tab-panel {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 30px 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+.tab-panel.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SUBJECT CARDS ── */
+.subject-card {
+  width: 280px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.subject-card:hover,
+.subject-card:focus {
+  transform: translateY(-6px);
+  outline: 2px solid #6a0dad;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+}
+
+.subject-card h3 {
+  color: #6a0dad;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.subject-card p {
+  color: #555;
+  font-size: 0.88rem;
+  margin: 8px 0 14px;
+}
+
+/* ── SHOW TOPICS BUTTON ── */
+/* jQuery toggles the .open class on .topics-list when this is clicked */
+.topics-btn {
+  padding: 8px 18px;
+  border: none;
+  background: #6a0dad;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+
+.topics-btn:hover {
+  background: #9b59b6;
+  transform: scale(1.05);
+}
+
+/* ── TOPICS LIST ── */
+/* Hidden by default — jQuery uses slideToggle to show/hide */
+.topics-list {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  text-align: left;
+}
+
+.topics-list li {
+  background: #f6f0ff;
+  border-left: 4px solid #6a0dad;
+  padding: 7px 12px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: #333;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: 0.85rem;
+  margin-top: 40px;
+  border-top: 1px solid #ddd;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .subject-card {
+    width: 90%;
+  }
+}

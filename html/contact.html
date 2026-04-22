@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Your CSS -->
+ <link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+    <header>
+  <h1>StudyHub</h1>
+  <p>Contact</p>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="resources.html">Resources</a>
+    <a href="subjects.html">Subjects</a>
+    <a href="tools.html">Tools</a>
+    <a href="upload.html">Upload</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand slide-text">Contact Us</span>
+    </div>
+</nav>
+
+<!-- Form -->
+<div class="container">
+    <div class="contact-container text-white">
+
+        <h3 class="text-center mb-4">Get in Touch</h3>
+
+        <form id="contactForm">
+
+            <div class="form-group">
+                <input type="text" id="name" class="form-control" placeholder=" ">
+                <label>Full Name</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="email" class="form-control" placeholder=" ">
+                <label>Email Address</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="subject" class="form-control" placeholder=" ">
+                <label>Subject</label>
+            </div>
+
+            <div class="form-group">
+                <textarea id="message" class="form-control" rows="4" placeholder=" "></textarea>
+                <label>Message</label>
+            </div>
+
+            <div id="errorMsg" class="text-danger mb-3"></div>
+
+            <button type="submit" class="btn btn-custom w-100">Send Message</button>
+        </form>
+
+    </div>
+</div>
+
+<footer>
+    <p>2026 StudyHub</p>
+</footer>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Your JS -->
+<script src="contact.js"></script>
+
+</body>
+</html>
