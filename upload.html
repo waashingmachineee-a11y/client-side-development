@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Notes</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+   <link rel="stylesheet" href="CSS FILE/home.css">
+<link rel="stylesheet" href="CSS FILE/upload.css">
+</head>
+
+<body>
+    <header>
+  <h1>StudyHub</h1>
+  <p>Save your Notes</p>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="resources.html">Resources</a>
+    <a href="subjects.html">Subjects</a>
+    <a href="tools.html">Tools</a>
+    <a href="upload.html">Upload</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container mt-3">
+  <div class="moving-text text-center mb-3">
+    <span>📚 Upload Your Notes Easily - Share Files & Knowledge 📚</span>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow p-4">
+        <h3 class="text-center mb-3">Upload Notes</h3>
+
+        <form id="notesForm" novalidate>
+
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" id="name">
+            <div class="error" id="nameError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" id="email">
+            <div class="error" id="emailError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Subject</label>
+            <select class="form-select" id="subject">
+              <option value="">Select Subject</option>
+              <option>Client Side Development</option>
+              <option>Introduction to Physical Computing</option>
+            </select>
+            <div class="error" id="subjectError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Notes Title</label>
+            <input type="text" class="form-control" id="title">
+            <div class="error" id="titleError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Upload File (PDF/DOC)</label>
+            <input type="file" class="form-control" id="file">
+            <div class="error" id="fileError"></div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success w-50 me-2">Upload</button>
+            <button type="reset" class="btn btn-danger w-50">Reset</button>
+          </div>
+
+          <div class="success" id="successMsg"></div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- jQuery (optional but included as you asked) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script src="JS FILE/upload.js"></script>
+
+</body>
+</html>

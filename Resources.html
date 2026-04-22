@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StudyHub - Resources</title>
+  <link rel="stylesheet" href="CSS FILE/resources.css">
+</head>
+
+<body>
+
+<header>
+  <h1>StudyHub Resources</h1>
+  <p>Learn, Practice, and Improve</p>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="resources.html">Resources</a>
+    <a href="subjects.html">Subjects</a>
+    <a href="tools.html">Tools</a>
+    <a href="upload.html">Upload</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- SEARCH -->
+<div class="search-box">
+  <input type="text" id="search" placeholder="Search resources..." onkeyup="searchResources()">
+</div>
+
+<!-- 🔥 JAVA SCRIPT -->
+<div class="resource">
+
+  <h3>JavaScript Notes</h3>
+
+  <img src="Images/Java.png" alt="JavaScript" class="resource-image">
+
+  <button onclick="toggleContent(this)">View Notes</button>
+
+  <p class="content">
+JavaScript is a high-level programming language used to create interactive and dynamic web pages.
+
+📌 Core Concepts:
+• Variables: let, const, var  
+• Data Types: String, Number, Boolean, Object, Array  
+• Operators  
+• Conditions (if / else)  
+• Loops  
+• Functions  
+• DOM Manipulation  
+
+📌 Example:
+let age = 20;
+if(age >= 18){
+  console.log("Adult");
+}
+
+📌 Importance:
+Used in almost every modern website for interactivity.
+  </p>
+</div>
+
+<!-- 📐 ALGEBRA -->
+<div class="resource">
+
+  <h3>Algebra Basics</h3>
+
+  <img src="Images/Algebra.jpg" alt="Algebra" class="resource-image">
+
+  <button onclick="toggleContent(this)">View Notes</button>
+
+  <p class="content">
+Algebra is a branch of mathematics that uses symbols and letters to solve equations.
+
+📌 Core Topics:
+• Variables (x, y, z)  
+• Linear Equations  
+• Quadratic Equations  
+• Factorization  
+
+📌 Example:
+2x + 4 = 10  
+2x = 6  
+x = 3  
+
+📌 Importance:
+Helps build logical thinking and problem-solving skills.
+  </p>
+</div>
+
+<!-- 💼 BUSINESS -->
+<div class="resource">
+
+  <h3>Business Studies</h3>
+
+  <img src="Images/Business.jpg" alt="Business Studies" class="resource-image">
+
+  <button onclick="toggleContent(this)">View Notes</button>
+
+  <p class="content">
+Business Studies explains how companies operate and manage money.
+
+📌 Core Areas:
+• Types of Business  
+• Marketing (4Ps)  
+• Management  
+• Finance  
+• Entrepreneurship  
+
+📌 Example:
+Product, Price, Place, Promotion  
+
+📌 Importance:
+Helps understand real-world business systems.
+  </p>
+</div>
+
+<!-- 📊 DIGITAL MARKETING (ADDED) -->
+<div class="resource">
+
+  <h3>Digital Marketing</h3>
+
+  <img src="Images/Digital Marketing.jpg" alt="Marketing" class="resource-image">
+
+  <button onclick="toggleContent(this)">View Notes</button>
+
+  <p class="content">
+Digital marketing is promoting products using the internet and social media.
+
+📌 Types:
+• SEO (Search Engine Optimization)  
+• Social Media Marketing  
+• Email Marketing  
+• Paid Ads  
+
+📌 Example:
+Instagram ads used by companies to promote products.
+
+📌 Importance:
+Helps businesses reach a global audience quickly.
+  </p>
+
+</div>
+
+<script src="JS FILE/resources.js"></script>
+
+</body>
+</html>
